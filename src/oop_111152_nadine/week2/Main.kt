@@ -1,45 +1,35 @@
 package oop_111152_nadine.week02
 
+import oop_111152_nadine.week2.Loan
 import oop_111152_nadine.week2.Student
 import java.util.Scanner
 
 fun main() {
+
     val scanner = Scanner(System.`in`)
 
-    println("--- APLIKASI PMB UMN ---")
+    println("=== LIBRARY FINE SYSTEM ===")
 
-    print("Masukkan Nama: ")
-    val name = scanner.nextLine()
+    print("Judul Buku: ")
+    val title = scanner.nextLine()
 
-    print("Masukkan NIM (Wajib 5 Karakter): ")
-    val nim = scanner.next()
+    print("Nama Peminjam: ")
+    val borrower = scanner.nextLine()
 
-    scanner.nextLine() // Bersihkan buffer newline (Penyakit klasik Scanner!)
-
-    if (nim.length != 5) {
-        println("ERROR: Pendaftaran dibatalkan. NIM harus 5 karakter!")
-    } else {
-        print("Masukkan Jurusan: ")
-        val major = scanner.nextLine()
-
-        val s1 = Student(name, nim, major)
-        println("Status: Pendaftaran Selesai.")
-    }
-
-    print("Pilih Jalur (1. Reguler, 2. Umum): ")
-    val type = scanner.nextInt()
+    print("Lama Pinjam (hari): ")
+    var duration = scanner.nextInt()
     scanner.nextLine()
 
-    if (type == 1) {
-        print("Masukkan Jurusan: ")
-        val major = scanner.nextLine()
-        val s1 = Student(name, nim, major)
-        println("Terdaftar di: ${s1.major} dengan GPA awal ${s1.gpa}")
-    } else if (type == 2) {
-        val s2 = Student(name, nim)
-        println("Terdaftar di: ${s2.major} dengan GPA awal ${s2.gpa}")
-    } else {
-        println("Pilihan ngawur, pendaftaran batal!")
+    if (duration < 0) {
+        println("Durasi tidak boleh minus! Otomatis diubah menjadi 1 hari.")
+        duration = 1
     }
 
+    val loan = Loan(title, borrower, duration)
+
+    println("\n=== Detail Peminjaman ===")
+    println("Buku: ${loan.bookTitle}")
+    println("Peminjam: ${loan.borrower}")
+    println("Durasi: ${loan.loanDuration} hari")
+    println("Total Denda: Rp ${loan.calculateFine()}")
 }
