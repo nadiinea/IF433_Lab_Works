@@ -1,11 +1,11 @@
-package oop_111152_nadine.week2
+package oop_001_johnthor.week02
 
 import java.util.Scanner
 
 fun main() {
-    val scanner = Scanner(source = System.`in`)
+    val scanner = Scanner(System.`in`)
 
-    println("--- APLIKASI PMB UNN ---")
+    println("--- APLIKASI PMB UMN ---")
 
     print("Masukkan Nama: ")
     val name = scanner.nextLine()
@@ -13,13 +13,17 @@ fun main() {
     print("Masukkan NIM (Wajib 5 Karakter): ")
     val nim = scanner.next()
 
-    scanner.nextLine()
+    scanner.nextLine() // Bersihkan buffer newline (Penyakit klasik Scanner!)
 
+    // Validasi di sisi pemanggil (Main)
     if (nim.length != 5) {
         println("ERROR: Pendaftaran dibatalkan. NIM harus 5 karakter!")
+        // Program berhenti di sini untuk mahasiswa ini, tidak membuat objek
     } else {
         print("Masukkan Jurusan: ")
         val major = scanner.nextLine()
+
+        // Instansiasi Objek karena data sudah aman
         val s1 = Student(name, nim, major)
         println("Status: Pendaftaran Selesai.")
     }
