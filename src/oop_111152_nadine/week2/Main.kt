@@ -1,5 +1,6 @@
 package oop_111152_nadine.week02
 
+import oop_111152_nadine.week2.Hero
 import oop_111152_nadine.week2.Loan
 import oop_111152_nadine.week2.Student
 import java.util.Scanner
@@ -60,4 +61,57 @@ fun main() {
     println("Peminjam: ${loan.borrower}")
     println("Durasi: ${loan.loanDuration} hari")
     println("Total Denda: Rp ${loan.calculateFine()}")
+
+    println("\n=== MINI RPG BATTLE ===")
+
+    print("Masukkan Nama Hero: ")
+    val heroName = scanner.nextLine()
+
+    print("Masukkan Base Damage Hero: ")
+    val heroDamage = scanner.nextInt()
+    scanner.nextLine()
+
+    val hero = Hero(heroName, heroDamage)
+    var enemyHp = 100
+
+    while (hero.isAlive() && enemyHp > 0) {
+
+        println("\n1. Serang")
+        println("2. Kabur")
+        print("Pilih aksi: ")
+        val choice = scanner.nextInt()
+
+        if (choice == 1) {
+
+            hero.attack("Enemy")
+            enemyHp -= hero.baseDamage
+
+            if (enemyHp < 0) enemyHp = 0
+
+            println("HP Musuh: $enemyHp")
+
+            if (enemyHp > 0) {
+                val enemyDamage = (10..20).random()
+                println("Musuh menyerang balik sebesar $enemyDamage!")
+                hero.takeDamage(enemyDamage)
+                println("HP Hero: ${hero.hp}")
+            }
+
+        } else if (choice == 2) {
+            println("Kamu kabur dari pertarungan!")
+            break
+        } else {
+            println("Pilihan tidak valid!")
+        }
+    }
+
+    println("\n=== HASIL PERTARUNGAN ===")
+
+    if (hero.hp > 0 && enemyHp == 0) {
+        println("Hero menang!")
+    } else if (hero.hp == 0) {
+        println("Musuh menang!")
+    } else {
+        println("Pertarungan dihentikan.")
+    }
 }
