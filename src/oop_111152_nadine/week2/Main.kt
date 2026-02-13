@@ -1,5 +1,6 @@
-package oop_001_johnthor.week02
+package oop_111152_nadine.week02
 
+import oop_111152_nadine.week2.Student
 import java.util.Scanner
 
 fun main() {
@@ -15,15 +16,12 @@ fun main() {
 
     scanner.nextLine() // Bersihkan buffer newline (Penyakit klasik Scanner!)
 
-    // Validasi di sisi pemanggil (Main)
     if (nim.length != 5) {
         println("ERROR: Pendaftaran dibatalkan. NIM harus 5 karakter!")
-        // Program berhenti di sini untuk mahasiswa ini, tidak membuat objek
     } else {
         print("Masukkan Jurusan: ")
         val major = scanner.nextLine()
 
-        // Instansiasi Objek karena data sudah aman
         val s1 = Student(name, nim, major)
         println("Status: Pendaftaran Selesai.")
     }
