@@ -1,5 +1,7 @@
 package oop_111152_nadine.week3
 
+import java.util.function.DoubleFunction
+
 class Employee(val name: String) {
     var salary: Int = 0
         set(value) {
@@ -20,5 +22,8 @@ class Employee(val name: String) {
     fun printStatus() {
         println("Karyawan: $name, Rating: $performanceRating")
     }
+
+    val tax: Double
+        get() = salary * 0.1
 }
 
