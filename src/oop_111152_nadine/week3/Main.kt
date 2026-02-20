@@ -18,4 +18,13 @@ fun main() {
     println("Weapon: ${w.name}")
     println("Damage: ${w.damage}")
     println("Tier: ${w.tier}")
+
+    println("\n-- TEST PLAYER --")
+
+    val p = Player("Nadine")
+
+// println(p.xp)
+
+    p.addXp(50)
+    p.addXp(60)
 }
