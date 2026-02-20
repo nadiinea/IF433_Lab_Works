@@ -1,7 +1,5 @@
 package oop_111152_nadine.week3
 
-import java.util.function.DoubleFunction
-
 class Employee(val name: String) {
     var salary: Int = 0
         set(value) {
