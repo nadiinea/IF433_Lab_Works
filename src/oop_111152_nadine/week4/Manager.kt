@@ -6,7 +6,7 @@ class Manager(
 ) : Employee(name, baseSalary) {
 
     override fun work() {
-        println("$name sedang memimpin rapat divisi.")
+        println("$name sedang memimpin rapat divisi")
     }
 
     override fun calculateBonus(): Int {
