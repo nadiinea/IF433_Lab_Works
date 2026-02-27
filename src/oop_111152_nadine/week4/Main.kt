@@ -22,4 +22,3 @@ fun main(){
     myElectricCar.honk()
     myElectricCar.openTrunk()
 }
-}
