@@ -39,17 +39,8 @@ fun main() {
 
     val payments: List<PaymentMethod> = listOf(ewallet, creditCard)
 
-    for (payment in payments) {
-
+    for (payment in payments) {tapi di
         payment.processPayment(75000.0)
-
-        if (payment is EWallet) {
-            println("Saldo kurang, melakukan top up...")
-            payment.topUp(50000.0)
-            println("Mencoba transaksi lagi...")
-            payment.processPayment(75000.0)
         }
-
     }
-
 }
