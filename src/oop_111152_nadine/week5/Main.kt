@@ -39,7 +39,7 @@ fun main() {
 
     val payments: List<PaymentMethod> = listOf(ewallet, creditCard)
 
-    for (payment in payments) {tapi di
+    for (payment in payments) {
         payment.processPayment(75000.0)
         }
     }
