@@ -47,4 +47,15 @@ fun main() {
     println(ItemRarity.LEGENDARY.dropChance)
     val weapon = Weapon.forgeStarterSword()
     println("${weapon.item.name} ${weapon.item.damage} ${weapon.item.rarity} ${weapon.durability}")
+
+    println("\n--- TEST BATTLE EVENT ---")
+
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+
+    val weapon2 = Weapon.forgeStarterSword()
+    processEvent(BattleState.LootDropped(weapon2.item))
+
+    processEvent(BattleState.GameOver("Terkena racun mematikan"))
+
 }
