@@ -1,5 +1,12 @@
 package oop_111152_nadine.week08
 
+// ✅ PINDAH KE SINI (di luar main)
+object DatabaseMock {
+    fun findUser(id: Int): UserProfile? {
+        return if (id == 1) UserProfile("TestUser", "test@test.com") else null
+    }
+}
+
 fun main() {
     println("=== TEST SAFE CALLS & ELVIS ===")
     val emptyOrder = Order(null, null)
@@ -29,6 +36,7 @@ fun main() {
             println("Ditemukan teks: ${it.uppercase()}")
         }
     }
+
     val someObject: Any = 100
     val safeString = someObject as? String ?: "Unknown String"
     println("Hasil cast + fallback: $safeString")
@@ -59,21 +67,17 @@ fun main() {
     println("Status dari Java: $javaResponse (Length: $statusLength)")
 
     println("\n=== RUNNING UNIT TEST ===")
+
     fun runMockUnitTest() {
         val testUser = DatabaseMock.findUser(1)
 
-        // Sengaja dibuat crash kalau null
         val initial = testUser!!.name.substring(0, 1)
 
         check(initial == "T") { "Test Failed! Initial is wrong." }
 
         println("Test Passed: Initial is T")
     }
-    object DatabaseMock {
-        fun findUser(id: Int): UserProfile? {
-            return if (id == 1) UserProfile("TestUser", "test@test.com") else null
-        }
-    }
+
     try {
         runMockUnitTest()
     } catch (e: Exception) {
