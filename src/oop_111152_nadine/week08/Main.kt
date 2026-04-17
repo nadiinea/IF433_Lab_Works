@@ -23,7 +23,6 @@ fun main() {
         "Laptop",
         450000.0
     )
-
     for (item in mixedData) {
         val text = item as? String
         text?.let {
