@@ -33,7 +33,4 @@ fun main() {
     worstPerformersString.forEach { println(it) }
     println("\n-- Unique Pairs Traded --")
     uniquePairs.forEach { println(it) }
-
-    worstPerformersString.forEach { println(it) }
-    uniquePairs.forEach { println(it) }
 }
