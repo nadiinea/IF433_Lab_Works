@@ -25,4 +25,12 @@ fun main() {
         .map { it.pair }
         .distinct()
         .sorted()
+
+    println("\n=== TRADING PERFORMANCE DASHBOARD ===")
+    println("\n-- Top Performers --")
+    topPerformersString.forEach { println(it) }
+    println("\n-- Worst Performers --")
+    worstPerformersString.forEach { println(it) }
+    println("\n-- Unique Pairs Traded --")
+    uniquePairs.forEach { println(it) }
 }
