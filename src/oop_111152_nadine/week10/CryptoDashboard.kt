@@ -11,4 +11,10 @@ fun main() {
         "200 OK",
         coinRepo.getAll()
     )
+
+    println(response.status)
+
+    response.data.forEach {
+        println("Coin: ${it.name}, Balance: ${it.balance}")
+    }
 }
