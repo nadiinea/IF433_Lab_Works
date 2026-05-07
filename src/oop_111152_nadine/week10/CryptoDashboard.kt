@@ -22,4 +22,10 @@ fun main() {
 
     txRepo.add(Transaction("TX001", 1500.0))
     txRepo.add(Transaction("TX002", 3200.0))
+
+    println("\n=== TRANSACTIONS ===")
+
+    txRepo.getAll().forEach {
+        println("ID: ${it.id}, Amount: ${it.amount}")
+    }
 }
