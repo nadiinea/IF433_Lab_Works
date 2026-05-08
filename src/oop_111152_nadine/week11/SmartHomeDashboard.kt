@@ -25,5 +25,17 @@ fun main() {
         .let {
             homeDevices.add(it)
         }
+
+    println("\n=== DEVICE STATUS ===")
+    homeDevices.forEach {
+        with(it) {
+            println(
+                "Perangkat: $name | " +
+                        "Kategori: $category | " +
+                        "Online: $isOnline | " +
+                        "Daya: ${powerLoad}W"
+            )
+        }
+    }
 }
 
