@@ -46,5 +46,9 @@ fun main() {
     activeDevices.forEach {
         println("${it.name} aktif")
     }
+
+    val totalPower = homeDevices.sumOf {
+        it.powerLoad
+    }
 }
 
