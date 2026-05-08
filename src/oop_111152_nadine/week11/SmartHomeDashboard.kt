@@ -37,5 +37,9 @@ fun main() {
             )
         }
     }
+
+    val activeDevices = homeDevices.filter {
+        it.isOnline
+    }
 }
 
