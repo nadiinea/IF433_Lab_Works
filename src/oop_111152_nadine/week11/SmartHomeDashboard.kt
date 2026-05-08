@@ -41,5 +41,10 @@ fun main() {
     val activeDevices = homeDevices.filter {
         it.isOnline
     }
+
+    println("\n=== ACTIVE DEVICES ===")
+    activeDevices.forEach {
+        println("${it.name} aktif")
+    }
 }
 
