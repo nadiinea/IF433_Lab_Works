@@ -13,4 +13,17 @@ fun main() {
             println("Setup perangkat: $name")
         }
     )
+
+    SmartDevice("Ezviz Outdoor", "Camera")
+        .apply {
+            isOnline = true
+            powerLoad = 5
+        }
+        .also {
+            println("(LOG) Kamera terhubung")
+        }
+        .let {
+            homeDevices.add(it)
+        }
 }
+
