@@ -40,4 +40,12 @@ fun main() {
     finally {
         println("Siklus pengecekan dispenser pagi selesai.")
     }
+
+    runCatching {
+        dispenseKibble(
+            requestedGram = 30,
+            availableGram = 1000,
+            isJammed = false
+        )
+    }
 }
