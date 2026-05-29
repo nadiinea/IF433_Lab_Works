@@ -30,12 +30,10 @@ class SafeOrderProcessor(
     val notifier: NotificationService
 )
 
-// ===== INTERFACE: PricingStrategy =====
 interface PricingStrategy {
     fun calculate(price: Double): Double
 }
 
-// ===== IMPLEMENTASI =====
 class RegularPricing : PricingStrategy {
     override fun calculate(price: Double): Double = price
 }
@@ -51,4 +49,13 @@ fun SafeOrderProcessor.processOrder(itemName: String, basePrice: Double, pricing
     val order = Order(itemName, finalPrice, pricing::class.simpleName ?: "Unknown")
     repo.saveOrder(order)
     notifier.sendNotification(order)
+}
+
+fun main() {
+    val repo = CsvOrderRepository()
+    val notifier = EmailNotifier()
+    val processor = SafeOrderProcessor(repo, notifier)
+
+    processor.processOrder("Sepatu Nike", 500000.0, VipPricing())
+    processor.processOrder("Kaos Polos", 150000.0, RegularPricing())
 }
